@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo HTML, CSS e DOM</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f8;
+            text-align: center;
+        }
+
+        header {
+            background-color: lightblue;
+            padding: 20px;
+        }
+
+        nav {
+            background-color: lightgray;
+            padding: 15px;
+        }
+
+        main {
+            background-color: white;
+            padding: 20px;
+            min-height: 200px;
+        }
+
+        footer {
+            background-color: gray;
+            padding: 20px;
+        }
+
+        .bloco-footer {
+            display: inline-block;
+            padding: 15px;
+            margin: 10px;
+        }
+
+        main ol {
+            display: table;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        #bloco1 {
+            background-color: lightcoral;
+        }
+
+        #bloco2 {
+            background-color: lightgreen;
+        }
+
+        #bloco3 {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Meu Site</h1>
+    </header>
+
+    <nav>
+        <a href="#">Início</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contato</a>
+    </nav>
+
+    <main id="conteudo">
+        <!-- O JavaScript criará os elementos aqui -->
+    </main>
+
+    <footer>
+        <div class="bloco-footer" id="bloco1">
+            <p>Primeira div do footer</p>
+        </div>
+
+        <div class="bloco-footer" id="bloco2">
+            <p>Segunda div do footer</p>
+        </div>
+
+        <div class="bloco-footer" id="bloco3">
+            <p>Terceira div do footer</p>
+        </div>
+    </footer>
+
+    <script>
+        const main = document.getElementById("conteudo");
+
+        const titulo = document.createElement("h1");
+        titulo.textContent = "Líbano";
+        main.appendChild(titulo);
+
+        const paragrafos = [
+            "O Líbano é um país do Oriente Médio, situado às margens do Mar Mediterrâneo.",
+            "Sua capital é Beirute, uma cidade com uma longa história e grande diversidade cultural.",
+            "O país é conhecido por suas montanhas, sua culinária e suas tradições, que refletem a convivência de diferentes culturas."
+        ];
+
+        paragrafos.forEach((texto) => {
+            const paragrafo = document.createElement("p");
+            paragrafo.textContent = texto;
+            main.appendChild(paragrafo);
+        });
+
+        const imagemBandeira = document.createElement("img");
+        imagemBandeira.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIzYUI8ZjmzBSxTxvr6Cblmq_G0utc0hSGEBly5diNjw&s=10";
+        imagemBandeira.alt = "Bandeira do Líbano, com faixas vermelhas e brancas e um cedro verde ao centro";
+        imagemBandeira.width = 300;
+        main.appendChild(imagemBandeira);
+
+        const lista = document.createElement("ol");
+        [
+            "Capital: Beirute",
+            "Idioma oficial: árabe",
+            "Moeda: libra libanesa",
+            "Localização: Oriente Médio, junto ao Mar Mediterrâneo"
+        ].forEach((informacao) => {
+            const item = document.createElement("li");
+            item.textContent = informacao;
+            lista.appendChild(item);
+        });
+        main.appendChild(lista);
+    </script>
+
+</body>
+</html>
